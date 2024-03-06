@@ -13,7 +13,8 @@ const simple_function = () => {
 
   color.style.color = colors[randomNumber];
   color.textContent = colors[randomNumber];
-  container.style.backgroundColor = colors[randomNumber];
+
+  document.body.style.backgroundColor = colors[randomNumber];
 };
 
 const hex_function = () => {
@@ -44,5 +45,5 @@ const hex_function = () => {
   const randomColor = `#${result.join("")}`;
   color.style.color = randomColor;
   color.textContent = randomColor.toUpperCase();
-  container.style.backgroundColor = randomColor;
+  document.body.style.backgroundColor = randomColor;
 };
