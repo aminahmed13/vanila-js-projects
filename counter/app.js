@@ -1,29 +1,26 @@
+let count = 0;
+
 value = document.getElementById("value");
-const decrease = document.querySelector(".decrease");
-const reset = document.querySelector(".reset");
-const increase = document.querySelector(".increase");
+// const decrease = document.querySelector(".decrease");
+// const reset = document.querySelector(".reset");
+// const increase = document.querySelector(".increase");
 
-decrease.addEventListener("click", function () {
-  let number = parseInt(value.textContent);
-  number -= 1;
-  value.textContent = number;
-  valueColor(number);
-});
+const btns = document.querySelectorAll(".btn");
 
-increase.addEventListener("click", function () {
-  let number = parseInt(value.textContent);
-  number += 1;
+btns.forEach(function (e) {
+  e.addEventListener("click", function (e) {
+    const classList = e.currentTarget.classList;
+    if (classList.contains("decrease")) {
+      count--;
+    } else if (classList.contains("reset")) {
+      count = 0;
+    } else {
+      count++;
+    }
 
-  value.textContent = number;
-  valueColor(number);
-});
-
-reset.addEventListener("click", function () {
-  let number = parseInt(value.textContent);
-  number = 0;
-
-  value.textContent = number;
-  valueColor(number);
+    value.textContent = count;
+    valueColor(count);
+  });
 });
 
 // function to change the color of the value
@@ -37,6 +34,29 @@ const valueColor = (num) => {
   }
 };
 
-//#212529 0
-// #2b8a3e >0
-// #c92a2a <0
+// decrease.addEventListener("click", function () {
+//   let number = parseInt(value.textContent);
+//   number -= 1;
+//   value.textContent = number;
+//   valueColor(number);
+// });
+
+// increase.addEventListener("click", function () {
+//   let number = parseInt(value.textContent);
+//   number += 1;
+
+//   value.textContent = number;
+//   valueColor(number);
+// });
+
+// reset.addEventListener("click", function () {
+//   let number = parseInt(value.textContent);
+//   number = 0;
+
+//   value.textContent = number;
+//   valueColor(number);
+// });
+
+// //#212529 0
+// // #2b8a3e >0
+// // #c92a2a <0
